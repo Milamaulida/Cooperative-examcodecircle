@@ -15,7 +15,7 @@
                     <h2>Payment Method</h2>
                     </div>
                     <div class="card-body">
-                        <a href="/add-paymentmethod" class="btn btn-success btn-sm" title="Add New Payment Method">Add New Payment Method</a>
+                        <a href="/add-payment-method" class="btn btn-success btn-sm" title="Add New Payment Method">Add New Payment Method</a>
                         <br>
                         <br>
                         <div class="table-responsive">
@@ -35,8 +35,8 @@
                                     <td>{{ $paymentmethod->account_number }}</td>
                                     <td>{{ $paymentmethod->type }}</td>
                                         <td>
-                                            <a href="/paymentmethod/{{ $paymentmethod->id }}" title="Edit paymentmethod"><button class="btn btn-primary">Edit</button></a>
-                                            <a href="/paymentmethod/delete/{{ $paymentmethod->id }}" title="Delete paymentmethod"><button class="btn btn-danger">Delete</button></a>
+                                            <a href="/payment-method/{{ $paymentmethod->id }}" title="Edit paymentmethod"><button class="btn btn-primary">Edit</button></a>
+                                            <a href="/payment-method/delete/{{ $paymentmethod->id }}" title="Delete paymentmethod"><button class="btn btn-danger">Delete</button></a>
                                         </td>                      
                                     </tr>
                                     @endforeach

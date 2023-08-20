@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('address');
             $table->date('birthday');
             $table->bigInteger('no_ktp');
-            $table->tinyInteger('is_active');
+            $table->tinyInteger('status');
             $table->tinyInteger('role');
             $table->timestamps();
         });

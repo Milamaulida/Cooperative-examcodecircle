@@ -10,7 +10,7 @@ class TbUser extends Model
     use HasFactory;
     protected $table = 'tbl_user';
 
-    protected $fillable = ['name','email','password','phone','address','birthday','no_ktp','is_active','role'];
+    protected $fillable = ['name','email','password','phone','address','birthday','no_ktp','status','role'];
 
     protected $dates = ['created_at', 'updated_at'];
 }

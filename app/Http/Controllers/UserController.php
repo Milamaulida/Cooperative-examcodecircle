@@ -34,8 +34,8 @@ class UserController extends Controller
         $phone = $request->input('phone');
         $address = $request->input('address');
         $birthday = $request->input('birthday');
-        $noktp = $request->input('no_ktp');
-        $isactive = $request->input('is_active');
+        $no_ktp = $request->input('no_ktp');
+        $status = $request->input('status');
         $role = $request->input('role');
         $data = new TbUser();
         $data->name = $name;
@@ -44,8 +44,8 @@ class UserController extends Controller
         $data->phone = $phone;
         $data->address = $address;
         $data->birthday = $birthday;
-        $data->no_ktp= $noktp;
-        $data->is_active = $isactive;
+        $data->no_ktp= $no_ktp;
+        $data->status = $status;
         $data->role = $role;
         $data->save();
         return redirect('/user');
@@ -79,8 +79,8 @@ class UserController extends Controller
         $phone = $request->input('phone');
         $address = $request->input('address');
         $birthday = $request->input('birthday');
-        $noktp = $request->input('no_ktp');
-        $isactive = $request->input('is_active');
+        $no_ktp = $request->input('no_ktp');
+        $status = $request->input('status');
         $role = $request->input('role');
         $data = $tbusers = TbUser::find($id);
         $data->name = $name;
@@ -89,8 +89,8 @@ class UserController extends Controller
         $data->phone = $phone;
         $data->address = $address;
         $data->birthday = $birthday;
-        $data->no_ktp= $noktp;
-        $data->is_active = $isactive;
+        $data->no_ktp= $no_ktp;
+        $data->status = $status;
         $data->role = $role;
         $data->save();
         return redirect('/user');

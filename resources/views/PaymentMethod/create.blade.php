@@ -8,7 +8,7 @@
 </head>
 <body>
     <center><h1 class="text-center mb-4"> Create Payment Method</h1></center>
-    <form action="/paymentmethod/store" method="post">
+    <form action="/payment-method/store" method="post">
     {{ csrf_field() }}
         <div class="container">
             <div class="row justify-content-center">
@@ -28,7 +28,7 @@
                                 <input type="text" class="form-control" name="type" required="required">
                             </div>
                             <button type="submit" class="btn btn-primary">Save Data</button>
-                            <a href="paymentmethod" type="" class="btn btn-primary">Kembali</a> 
+                            <a href="payment-method" type="" class="btn btn-primary">Kembali</a> 
                         </div>
                     </div>
                 </div>

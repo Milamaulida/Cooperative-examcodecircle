@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\TbUser;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -20,20 +21,21 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view ('Member.create');
+        $member = TbUser::where ('role','member')->get();
+        return view ('Member.create',compact('member'));
     }
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $userid = $request->input('user_id');
-        $typeloaninterest = $request->input('type_loan_interest');
-        $limitloan = $request->input('limit_loan');
+        $user_id = $request->input('user_id');
+        $type_loan_interest = $request->input('type_loan_interest');
+        $limit_loan = $request->input('limit_loan');
         $data = new Member();
-        $data->user_id = $userid;
-        $data->type_loan_interest = $typeloaninterest;
-        $data->limit_loan = $limitloan;
+        $data->user_id = $user_id;
+        $data->type_loan_interest = $type_loan_interest;
+        $data->limit_loan = $limit_loan;
         $data->save();
         return redirect('/member');
     }
@@ -60,13 +62,13 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $userid = $request->input('user_id');
-        $typeloaninterest = $request->input('type_loan_interest');
-        $limitloan = $request->input('limit_loan');
+        $user_id = $request->input('user_id');
+        $type_loan_interest = $request->input('type_loan_interest');
+        $limit_loan = $request->input('limit_loan');
         $data = $members = Member::find($id);
-        $data->user_id = $userid;
-        $data->type_loan_interest = $typeloaninterest;
-        $data->limit_loan = $limitloan;
+        $data->user_id = $user_id;
+        $data->type_loan_interest = $type_loan_interest;
+        $data->limit_loan = $limit_loan;
         $data->save();
         return redirect('/member');
     }

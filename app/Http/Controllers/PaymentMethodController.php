@@ -31,11 +31,11 @@ class PaymentMethodController extends Controller
     public function store(Request $request)
     {
         $name = $request->input('name');
-        $accountnumber = $request->input('account_number');
+        $account_number = $request->input('account_number');
         $type = $request->input('type');
         $data = new PaymentMethod();
         $data->name = $name;
-        $data->account_number = $accountnumber;
+        $data->account_number = $account_number;
         $data->type = $type;
         $data->save();
         return redirect('/paymentmethod');
@@ -64,11 +64,11 @@ class PaymentMethodController extends Controller
     public function update(Request $request, string $id)
     {
         $name = $request->input('name');
-        $accountnumber = $request->input('account_number');
+        $account_number = $request->input('account_number');
         $type = $request->input('type');
         $data = $paymentmethods = PaymentMethod::find($id);
         $data->name = $name;
-        $data->account_number = $accountnumber;
+        $data->account_number = $account_number;
         $data->type = $type;
         $data->save();
         return redirect('/paymentmethod');

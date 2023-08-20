@@ -8,7 +8,7 @@
 </head>
 <body>
     <center><h1 class="text-center mb-4"> Edit Payment Method</h1></center>
-    <form action="/paymentmethod/update/{{$paymentmethods->id}}" method="post">
+    <form action="/payment-method/update/{{$paymentmethods->id}}" method="post">
     {{ csrf_field() }}
     {{method_field ('PATCH')}}
     <input type="hidden" name="id" value="{{$paymentmethods->id}}">

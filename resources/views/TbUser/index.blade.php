@@ -29,7 +29,7 @@
                                         <th>Address</th>
                                         <th>Birthday</th>
                                         <th>No KTP</th>
-                                        <th>Is Active</th>
+                                        <th>Status</th>
                                         <th>Role</th>
                                         <th>Opsi</th>
                                     </tr>
@@ -42,9 +42,9 @@
                                     <td>{{ $user->password }}</td>
                                     <td>{{ $user->phone }}</td>
                                     <td>{{ $user->address }}</td>
-                                    <td>{{ $user->birthday }}SKS</td>
+                                    <td>{{ $user->birthday }}</td>
                                     <td>{{ $user->no_ktp }}</td>
-                                    <td>{{ $user->is_active }}</td>
+                                    <td>{{ $user->status }}</td>
                                     <td>{{ $user->role }}</td>
                                         <td>
                                             <a href="/user/{{ $user->id }}" title="Edit User"><button class="btn btn-primary">Edit</button></a>

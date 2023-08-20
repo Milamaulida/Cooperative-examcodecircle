@@ -44,11 +44,11 @@
                                 <input type="text" class="form-control" name="no_ktp" required="required">
                             </div>
                             <div class="mb-3">
-                                <label for="admin_fee" class="form-label">Is Active</label>
-                                <select class="form-select" aria-label="Default select example" name="is_active" required="required">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" aria-label="Default select example" name="status" required="required">
                                     <option>choose</option>
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
+                                    <option value="Non Active">Non Active</option>
+                                    <option value="Active">Active</option>
                                 </select>                            
                             </div>
                             <div class="mb-3">

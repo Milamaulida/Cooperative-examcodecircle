@@ -46,21 +46,21 @@
                                 <input type="text" class="form-control" name="no_ktp" required="required" value="{{$tbusers->no_ktp}}">
                             </div>
                             <div class="mb-3">
-                                <label for="admin_fee" class="form-label">Is Active</label>
-                                <select class="form-select" aria-label="Default select example" name="is_active" required="required" value="{{$tbusers->is_active}}">
-                                    <option>choose</option>
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                </select>                            
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" aria-label="Default select example" name="status" required="required" value="{{$tbusers->status}}">
+                                    <option value="{{$tbusers->status}}">{{$tbusers->status}}</option>
+                                    <option value="Non Active">Non Active</option>
+                                    <option value="Active">Active</option>
+                                </select>                                  
                             </div>
                             <div class="mb-3">
                                 <label for="role" class="form-label">Role</label>
                                 <select class="form-select" aria-label="Default select example" name="role" required="required" value="{{$tbusers->role}}">
-                                    <option>choose</option>
-                                    <option value="Admin">Admin</option>
+                                    <option value="{{$tbusers->role}}">{{$tbusers->role}}</option>
+                                    <option value="Admin" >Admin</option>
                                     <option value="Pengelola Koperasi">Pengelola Koperasi</option>
                                     <option value="Anggota">Anggota</option>
-                                </select>
+                                </select>                            
                             </div>
                             <button type="submit" class="btn btn-primary">Save Data</button>
                             <button type="submit" class="btn btn-primary">Kembali</a> 

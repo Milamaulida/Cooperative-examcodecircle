@@ -24,7 +24,7 @@
                             <div class="mb-3">
                                 <label for="type_loan_interest" class="form-label">Type Loan Interest</label>
                                 <select class="form-select" aria-label="Default select example" name="type_loan_interest" required="required" value="{{$members->type_loan_interest}}">
-                                    <option>choose</option>
+                                    <option value="{{$members->type_loan_interest}}">{{$members->type_loan_interest}}</option>
                                     <option value="7%">7%</option>
                                     <option value="20%">20%</option>
                                 </select>       

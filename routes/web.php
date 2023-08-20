@@ -30,7 +30,6 @@ Route::post('/loan/store',[LoanController::class,'store']);
 Route::get('/loan/{id}', [LoanController::class,'edit']);
 Route::patch('/loan/update/{id}', [LoanController::class,'update']);
 Route::get('/loan/delete/{id}', [LoanController::class,'destroy']);
-Route::get('/calculate-loan/{loanId}', [LoanController::class, 'calculateLoanData']);
 
 Route::get('/member',[MemberController::class,'index']);
 Route::get('/add-member',[MemberController::class,'create']);
@@ -40,12 +39,12 @@ Route::patch('/member/update/{id}', [MemberController::class,'update']);
 Route::get('/member/delete/{id}', [MemberController::class,'destroy']);
 
 
-Route::get('/paymentmethod',[PaymentMethodController::class,'index']);
-Route::get('/add-paymentmethod',[PaymentMethodController::class,'create']);
-Route::post('/paymentmethod/store',[PaymentMethodController::class,'store']);
-Route::get('/paymentmethod/{id}', [PaymentMethodController::class,'edit']);
-Route::patch('/paymentmethod/update/{id}', [PaymentMethodController::class,'update']);
-Route::get('/paymentmethod/delete/{id}', [PaymentMethodController::class,'destroy']);
+Route::get('/payment-method',[PaymentMethodController::class,'index']);
+Route::get('/add-payment-method',[PaymentMethodController::class,'create']);
+Route::post('/payment-method/store',[PaymentMethodController::class,'store']);
+Route::get('/payment-method/{id}', [PaymentMethodController::class,'edit']);
+Route::patch('/payment-method/update/{id}', [PaymentMethodController::class,'update']);
+Route::get('/payment-method/delete/{id}', [PaymentMethodController::class,'destroy']);
 
 
 Route::get('/user',[UserController::class,'index']);

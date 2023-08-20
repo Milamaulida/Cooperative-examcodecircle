@@ -56,7 +56,7 @@
                             <div class="mb-3">
                                 <label for="tenor" class="form-label">Tenor</label>
                                 <select class="form-select" aria-label="Default select example" name="tenor" required="required" value="{{ $loans->tenor}}">
-                                    <option>choose</option>
+                                    <option value="{{ $loans->tenor}}">{{ $loans->tenor}}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="6">6</option>

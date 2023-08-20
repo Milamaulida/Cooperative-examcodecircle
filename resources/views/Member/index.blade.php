@@ -31,9 +31,9 @@
                                 <tbody>
                                 @foreach($members as $member)
                                 <tr>
-                                    <td>{{ $member->user_id }}</td>
+                                    <td>{{ $member->role }}</td>
                                     <td>{{ $member->type_loan_interest }}</td>
-                                    <td>{{ $member->limit_loan }}</td>
+                                    <td>Rp.{{ number_format($member->limit_loan) }}</td>
                                         <td>
                                             <a href="/member/{{ $member->id }}" title="Edit member"><button class="btn btn-primary">Edit</button></a>
                                             <a href="/member/delete/{{ $member->id }}" title="Delete member"><button class="btn btn-danger">Delete</button></a>

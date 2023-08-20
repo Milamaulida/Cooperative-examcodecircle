@@ -28,33 +28,33 @@ class LoanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $members, $loans)
     {
-        $noloan = $request->input('no_loan');
-        $memberid = $request->input('member_id'); 
-        $paymentmethodid = $request->input('payment_method_id');
+        $no_loan = $request->input('no_loan');
+        $member_id = $request->input('member_id'); 
+        $payment_method_id = $request->input('payment_method_id');
         $description = $request->input('description');
-        $loanamount = $request->input('loan_amount'); 
-        $loaninterest = $request->input('loan_interest');
-        $adminfee = $request->input('admin_fee');
-        $totalloan = $request->input('total_loan');
-        $totalinstallment = $request->input('total_installment'); 
+        $loan_amount = $request->input('loan_amount'); 
+        $loan_interest = $members->type_loan_interest * $loans->loan_amount;
+        $admin_fee = $request->input('admin_fee');
+        $total_loan = $loans->loan_amount + $loan_interest;
+        $total_installment = $total_loan + $loans->admin_fee;
         $tenor = $request->input('tenor');
-        $startat = $request->input('start_at');
-        $endat = $request->input('end_at'); 
+        $start_at = $request->input('start_at');
+        $end_at = $request->input('end_at'); 
         $data = new Loan();
-        $data->no_loan = $noloan;
-        $data->member_id = $memberid;
-        $data->payment_method_id = $paymentmethodid;
+        $data->no_loan = $no_loan;
+        $data->member_id = $member_id;
+        $data->payment_method_id = $payment_method_id;
         $data->description = $description;
-        $data->loan_amount = $loanamount;
-        $data->loan_interest = $loaninterest;
-        $data->admin_fee = $adminfee;
-        $data->total_loan= $totalloan;
-        $data->total_installment = $totalinstallment;
+        $data->loan_amount = $loan_amount;
+        $data->loan_interest = $loan_interest;
+        $data->admin_fee = $admin_fee;
+        $data->total_loan= $total_loan;
+        $data->total_installment = $total_installment;
         $data->tenor = $tenor;
-        $data->start_at = $startat;
-        $data->end_at = $endat;
+        $data->start_at = $start_at;
+        $data->end_at = $end_at;
         $data->save();
         return redirect('/loan');
 
@@ -80,33 +80,33 @@ class LoanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $members, $loans)
     {
-        $noloan = $request->input('no_loan');
-        $memberid = $request->input('member_id');
-        $paymentmethodid = $request->input('payment_method_id');
+        $no_loan = $request->input('no_loan');
+        $member_id = $request->input('member_id');
+        $payment_method_id = $request->input('payment_method_id');
         $description = $request->input('description');
-        $loanamount = $request->input('loan_amount'); 
-        $loaninterest = $request->input('loan_interest');
-        $adminfee = $request->input('admin_fee');
-        $totalloan = $request->input('total_loan');
-        $totalinstallment = $request->input('total_installment'); 
+        $loan_amount = $request->input('loan_amount'); 
+        $loan_interest = $members->type_loan_interest * $loans->loan_amount;
+        $admin_fee = $request->input('admin_fee');
+        $total_loan = $loans->loan_amount + $loan_interest;
+        $total_installment = $total_loan + $loans->admin_fee;
         $tenor = $request->input('tenor');
-        $startat = $request->input('start_at');
-        $endat = $request->input('end_at');
+        $start_at = $request->input('start_at');
+        $end_at = $request->input('end_at');
         $data = $loans = Loan::find($id);
-        $data->no_loan = $noloan;
-        $data->member_id = $memberid;
-        $data->payment_method_id = $paymentmethodid;
+        $data->no_loan = $no_loan;
+        $data->member_id = $member_id;
+        $data->payment_method_id = $payment_method_id;
         $data->description = $description;
-        $data->loan_amount = $loanamount;
-        $data->loan_interest = $loaninterest;
-        $data->admin_fee = $adminfee;
-        $data->total_loan= $totalloan;
-        $data->total_installment = $totalinstallment;
+        $data->loan_amount = $loan_amount;
+        $data->loan_interest = $loan_interest;
+        $data->admin_fee = $admin_fee;
+        $data->total_loan= $total_loan;
+        $data->total_installment = $total_installment;
         $data->tenor = $tenor;
-        $data->start_at = $startat;
-        $data->end_at = $endat;
+        $data->start_at = $start_at;
+        $data->end_at = $end_at;
         $data->save();
         return redirect('/loan');
     }
@@ -120,27 +120,5 @@ class LoanController extends Controller
         $loans->delete();
         
         return redirect('/loan');
-    }
-    public function calculateLoanData($loanId)
-    {
-        $loan = Loan::find($loanId);
-        if (!$loan) {
-            return "Pinjaman tidak ditemukan.";
-        }
-    
-        $member = Member::find($loan->member_id);
-        if (!$member) {
-            return "Anggota tidak ditemukan.";
-        }
-    
-        $loanInterest = $member->type_loan_interest * $loan->loan_amount;
-        $totalLoan = $loan->loan_amount + $loanInterest;
-        $totalInstallment = $totalLoan + $loan->admin_fee;
-    
-        return [
-            'loan_interest' => $loanInterest,
-            'total_loan' => $totalLoan,
-            'total_installment' => $totalInstallment,
-        ];
     }
 }
